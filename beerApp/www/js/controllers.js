@@ -16,7 +16,7 @@ angular.module('starter.controllers', [])
         name: $scope.form.name,
         abv: $scope.form.abv,
         hasLabels: $scope.form.labels,
-        year: $scope.form.year,
+        shortName: $scope.form.shortName,
         isOrganic: $scope.form.organic,
 
       }
@@ -35,16 +35,12 @@ angular.module('starter.controllers', [])
   return {data: {}};
 })
 
-.controller('BeersCtrl', function($scope, $http, BeerData) {
+.controller('BeersCtrl', function($scope, BeerData) {
 
-  $scope.beers = [];
-  for (var i = 0; i<=BeerData.data.totalResults - 1; i++) {
-    $scope.beers.push({name:BeerData.data.data[i].nameDisplay, image:BeerData.data.data[i].labels,  id:i})  
-  }
+  $scope.beers = BeerData.data.data;
 })
 
 .controller('BeerCtrl', function($scope, $stateParams, BeerData) {
-  console.log($stateParams.id);
   $scope.beers = BeerData.data.data;
-  $scope.sid = $stateParams.id;
+  $scope.id2 = $stateParams.beerID;
 })

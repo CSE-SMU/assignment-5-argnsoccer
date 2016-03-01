@@ -1,14 +1,15 @@
 <ion-view view-title="Details">
   <ion-content>
     <ion-list>
-      <ion-item ng-repeat="beer in beers | filter:{id:sid}" class="item item-text-wrap">
+      <ion-item ng-repeat= "beer in beers | filter: {id: id2}"  class="item item-text-wrap">
         <div class="text-center">
           <strong>{{beer.name}}</strong><br>
           ABV: <strong>{{beer.abv}}%</strong><br>
-          Year: <strong>{{beer.year}}</strong><br>
+          Short Name: <strong>{{beer.style.shortName}}</strong><br>
+          ID: {{beer.id}}<br>
         <img ng-src={{beer.labels.medium}}> <br>
         <p>
-          {{beer.description}}
+          {{beer.style.description}}
         </p>
       </ion-item>
     </ion-list>
