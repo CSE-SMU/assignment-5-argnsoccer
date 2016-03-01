@@ -2,11 +2,45 @@
 
   <ion-content>
     <div class="list list-inset">
+      <div class="item item-divider">
+        Filter for Beer Specs:
+      </div>
       <label class="item item-input">
-        <i class="icon ion-search placeholder-icon"></i>
-        <input type="text" placeholder="Search" ng-model = "form.name">
+        <span class="input-label">Name:</span>
+        <input type="text" placeholder="Name" ng-model = "form.name">
       </label>
+      <label class="item item-input item-select">
+        <div class="input-label">ABV</div>
+        <select ng-model="form.abv">
+          <option value="-1">Less than 1%</option>
+          <option value="1,6">1 - 6%</option>
+          <option value="6,12">6 - 12%</option>
+        </select>
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Year:</span>
+        <input type="text" placeholder="Year (YYYY)" ng-model = "form.year">
+      </label>
+      <div class="item item-toggle">
+       Organic
+       <label class="toggle toggle-balanced">
+          <input type="checkbox" ng-model="form.organic" ng-true-value="'Y'" ng-false-value="'N'">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+       </label>
+     </div>
+     <div class="item item-toggle">
+       Require Labels
+       <label class="toggle toggle-balanced">
+          <input type="checkbox" ng-model="form.labels" ng-true-value="'Y'" ng-false-value="'N'">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+       </label>
+     </div>
     </div>
+
   </ion-content>
 
   <div class="bar bar-footer bar-balanced" ng-click="search()">

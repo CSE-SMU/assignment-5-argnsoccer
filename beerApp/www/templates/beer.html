@@ -1,6 +1,16 @@
-<ion-view view-title="Beer">
+<ion-view view-title="Details">
   <ion-content>
-    <h1>Beer</h1>
-    <p> fuqin cunts m8</p>
+    <ion-list>
+      <ion-item ng-repeat="beer in beers | filter:{id:sid}" class="item item-text-wrap">
+        <div class="text-center">
+          <strong>{{beer.name}}</strong><br>
+          ABV: <strong>{{beer.abv}}%</strong><br>
+          Year: <strong>{{beer.year}}</strong><br>
+        <img ng-src={{beer.labels.medium}}> <br>
+        <p>
+          {{beer.description}}
+        </p>
+      </ion-item>
+    </ion-list>
   </ion-content>
 </ion-view>
