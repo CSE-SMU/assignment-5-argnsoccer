@@ -37,7 +37,10 @@ angular.module('starter.controllers', [])
 
 .controller('BeersCtrl', function($scope, $http, BeerData) {
 
-  $scope.beers = BeerData.data.data;
+  $scope.beers = [];
+  for (var i = 0; i<=BeerData.data.totalResults - 1; i++) {
+    $scope.beers.push({name:BeerData.data.data[i].nameDisplay, image:BeerData.data.data[i].labels,  id:i})  
+  }
 })
 
 .controller('BeerCtrl', function($scope, $stateParams, BeerData) {
